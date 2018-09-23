@@ -1,2 +1,4 @@
 # -weather-forecast
-This is a simple program about weather forecast in Linux.
+# What
+This is a simple program using C running on Linux system.
+Like this 
