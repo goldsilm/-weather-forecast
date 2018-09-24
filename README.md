@@ -1,6 +1,6 @@
 # -weather-forecast
 ## What
-This is a simple program using C running on Linux system. Tt uses cJSON and curl.<br>
+This is a simple program using C running on Linux system. It uses cJSON and curl.<br>
 ![Image text](https://github.com/goldsilm/-weather-forecast/edit/master/README.md)
 ## How to use
 1.Download curl,if you have down curl,you can keep this.<br>
