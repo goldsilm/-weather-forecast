@@ -3,7 +3,7 @@
 This is a simple program using C running on Linux system. It uses cJSON and curl.<br>
 ![Image text](https://github.com/goldsilm/-weather-forecast/edit/master/README.md)
 ## How to use
-1.Download curl,if you have down curl,you can keep this.<br>
+1.Download curl,if you have down curl,you can kip this.<br>
 > `wget https://curl.haxx.se/download/curl-7.55.1.tar.gz` <br>
 > `tar -xzvf  curl-7.55.1.tar.gz`<br>
 > `cd curl-7.55.1`<br>
