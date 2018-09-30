@@ -27,7 +27,7 @@ struct MemoryStruct
 };
 
 static size_t
-WriteMemoryCallback(void *contents, size_t size, size_t nmemb, void *userp)
+WriteMemoryCallback(void *contents, size_t size, size_t nmemb, void *userp)    // Injecting information into cache
 {
 	size_t realsize = size * nmemb;
 	struct MemoryStruct *mem = (struct MemoryStruct *)userp;
@@ -56,8 +56,9 @@ int main(int argc, char *argv[])
     {
 		if(strcmp(argv[i-1], "-help")==0)
 		{
-			printf("weather -l [location] if you do not choose,it will be Beijing\n");
-			printf("weather -k [key] you can get a free key from \"https://developer.worldweatheronline.com\"\n");
+			printf(" -l [location] if you do not choose,it will be Beijing\n");
+			printf(" -k [key]  It is necessary,you can get a free key from \"https://developer.worldweatheronline.com\"\n");
+		        exit(0);
 		}
 		else if(strcmp(argv[i-1], "-l")==0)
 		{
@@ -75,7 +76,7 @@ int main(int argc, char *argv[])
 			exit(0);
 		}
 	}
-	if (strlen(key) <= 8)
+	if (strlen(key) <= 8)             //check the key
 	{
 		printf("Please imput right key \n");
 		exit(0);
@@ -87,7 +88,7 @@ int main(int argc, char *argv[])
 	strcat(url, "&format=json&num_of_days=3");
 	int judedata(char data[]);                                       //judgedata
 	void weatherprint(char data[]);                                //weather print
-	CURL *curl;
+	CURL *curl;                                                     //star get
 	CURLcode res;
 	struct MemoryStruct chunk;
 	chunk.memory = malloc(1);  /* will be grown as needed by the realloc above */
@@ -150,7 +151,7 @@ int judgeweather(char *x)        //judge the weather and return the figure
 	else
 		return 0;
 }
-void message(cJSON *node, int x, int y, int z)      //printf message of weather
+void message(cJSON *node, int x, int y, int z)       //print message of weather  ; x is the day  ; y is the list ; z  is the  line
 {
 	void colorspeed(cJSON *data);
 	void colortemp(cJSON *data);
@@ -273,7 +274,7 @@ void message(cJSON *node, int x, int y, int z)      //printf message of weather
 	if (y == 3 && z == 4)
 		printf("\n");
 }
-void date(cJSON *node, int x)
+void date(cJSON *node, int x)         //date of weather
 {
 	cJSON *node1;
 	cJSON *node2;
@@ -282,7 +283,7 @@ void date(cJSON *node, int x)
 	printf("  %s ", node2->valuestring);
 }
 
-int judedata(char data[])
+int judedata(char data[])                  // jude data
 {
 	cJSON *json;
 	if (strlen(data) > 160)
@@ -320,7 +321,7 @@ int judedata(char data[])
 		exit(0);
 	}
 }
-void colortemp(cJSON *data)
+void colortemp(cJSON *data)                   //let temp in color
 {
 	if (strlen(data->valuestring) == 2)
 	{
@@ -356,7 +357,7 @@ void colortemp(cJSON *data)
 		printf(LIGHT_BLUE"%3.3s"NONE, data->valuestring);
 	}
 }
-void colorspeed(cJSON *data)
+void colorspeed(cJSON *data)                   //let windspeed in color
 {
 	if (strlen(data->valuestring) == 2)
 	{
@@ -382,7 +383,7 @@ void colorspeed(cJSON *data)
 		printf("%2.2s", data->valuestring);
 	}
 }
-void weatherprint(char data[])
+void weatherprint(char data[])              //print weather
 {
 	void message(cJSON *node, int x, int y, int z);
 	cJSON *json;
