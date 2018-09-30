@@ -16,7 +16,8 @@
 #define YELLOW       "\033[1;33m"
 #define LIGHT_GRAY   "\033[0;37m"
 #define WHITE        "\033[1;37m"
-void picture(int x, int y)
+void picture(int x, int y)                  // picture of weather   ;x is type of weather  ;y is the line
+{
 {
 	void color(unsigned int x);
 	if (x == 1)
